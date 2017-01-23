@@ -1,0 +1,28 @@
+<!-- new syntax for ng-if -->
+<section *ngIf="person">
+  <section>
+    <h2>You selected: {{person.name}}</h2>
+    <h3>Description</h3>
+    <p>
+      {{person.name}} weights {{person.weight}} and is {{person.height}} tall.
+    </p>
+  </section>
+  <section>
+    <form>
+      <div>
+        <label for="name">Name: </label>
+        <input type="text" name="name">
+      </div>
+      <div>
+        <label for="weight">Weight: </label>
+        <input type="number" name="weight">
+      </div>
+      <div>
+        <label for="height">Height: </label>
+        <input type="number" name="height">
+      </div>
+    </form>
+  </section>
+
+  <button (click)="gotoPeoplesList()">Back to peoples list</button>
+<section>

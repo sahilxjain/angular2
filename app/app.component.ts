@@ -26,10 +26,13 @@ import {PeopleService} from "./people.service"
         </tr>
       </table>
       <p>Below list is imported from other componment</p>
-      <people-list></people-list> <!-- Our child component selector -->
+      <!-- <people-list></people-list> --> <!-- Our child component selector -->
+      <router-outlet></router-outlet> <!-- Angular 2 Routing directive that displays the active route -->
+
     </div>
     `,
-    providers: [PeopleService],
+    providers: [PeopleService], // HERE! This registers the PeopleService  now Angular 2 knows to inject it when required
+
     styleUrls: ['app/src/css/main.css']
     //  directives: [PeopleListComponent], No need to add directives in component. Just add to declaration array in module
 })
@@ -47,6 +50,7 @@ export class AppComponent  {
     // Now importing above data with a service
     // this shorthand syntax automatically creates and initializes a new private member in the class
     people: Person[] = []; // intialise variable people with class people defined in people.ts
+    
     constructor(private _peopleService: PeopleService){
         this.people = _peopleService.getAll();
     }
