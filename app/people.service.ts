@@ -9,7 +9,9 @@ const PEOPLE : Person[] = [
       {id: 3, name: 'Han Solo', height: 185, weight: 85},
     ];
 
+@Injectable()
 export class PeopleService{
+
   getAll() : Person[] {
     //return PEOPLE;
     return PEOPLE.map(p => this.clone(p));

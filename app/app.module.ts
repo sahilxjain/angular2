@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
+import { HttpModule } from '@angular/http'
 
 import { routing } from './app.routes';
 
@@ -13,7 +14,7 @@ import { PersonDetailsComponent } from './person-details.component'
 
 
 @NgModule({
-  imports:      [ BrowserModule,routing,FormsModule ],
+  imports:      [ BrowserModule,routing,FormsModule,HttpModule ],
   declarations: [ AppComponent, PeopleListComponent,PersonDetailsComponent ],
   bootstrap:    [ AppComponent ]
   //providers: [] // Used the same instance of a service for whole application. Also import service first
