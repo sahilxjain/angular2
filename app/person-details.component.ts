@@ -42,6 +42,12 @@ export class PersonDetailsComponent implements OnInit, OnDestroy{
         this.router.navigate(link); // Call router.navigate() method for redirection to its route
     }
 
+    savePersonDetails(){
+        alert(`saved!!! ${JSON.stringify(this.person)}`);
+        this.peopleservice.save(this.person);
+    }
+
+
 
 }
 

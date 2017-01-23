@@ -8,21 +8,34 @@
     </p>
   </section>
   <section>
-    <form>
+    <form (ngSubmit)="savePersonDetails()" #personForm="ngForm">
       <div>
         <label for="name">Name: </label>
-        <input type="text" name="name">
+        <input type="text" name="name" required [(ngModel)]="person.name" #name="ngModel"> <!-- () Event binding + [] Property binding = [()] 2 way data binding -->
+        <div [hidden]="name.valid || name.pristine" class="error">
+            Name is required my good sir/lady!
+        </div>
+
       </div>
       <div>
         <label for="weight">Weight: </label>
-        <input type="number" name="weight">
+        <input type="number" name="weight" [(ngModel)]="person.weight">
       </div>
       <div>
         <label for="height">Height: </label>
-        <input type="number" name="height">
+        <input type="number" name="height" [(ngModel)]="person.height">
       </div>
+      <button type="submit" [disabled]="!personForm.form.valid">Save</button>
     </form>
   </section>
 
   <button (click)="gotoPeoplesList()">Back to peoples list</button>
 <section>
+
+<!--
+    Angular2 4 types of data binding
+    Interpolation: One-way data binding from the component to the template. Let’s you display information from the component into the template. Example: {{person.name}}.
+    Property bindings: One-way data binding from the component to the template. Let’s you bind data from the component into the template. Example: [src]="person.imageUrl".
+    Event bindings: One-way data binding from the template to the component. Let’s you bind template events to the component. Example [click)="selectPerson(person)".
+    [(ngModel)]: Two-way data binding from the component to the template and vice versa. Example [(ngModel)]="person.name".
+-->
