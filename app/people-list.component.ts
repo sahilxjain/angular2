@@ -23,6 +23,9 @@ import { PeopleService } from './people.service';
 export class PeopleListComponent implements OnInit{
 
   people: Person[] = [];
+  isLoading: boolean = true;
+  error_message: string = '';
+
 
   //Way 1 without OnInit
   // constructor(private _peopleService : PeopleService){
@@ -31,9 +34,10 @@ export class PeopleListComponent implements OnInit{
 
   //Way2 Using OnInit Way
   //selectedPerson: Person;
-  constructor(private _peopleService : PeopleService){}
+  constructor(private peopleService : PeopleService){}
   ngOnInit(){
-    this.people = this._peopleService.getAll();
+    //this.people = this.peopleService.getAll(); // Fetching static data here through service
+    this.peopleService.fetchJson().subscribe( (x) => this.people = x, (e) => this.error_message = e ); // fetched data from json file
   }
   // selectPerson(person:Person){
   //   this.selectedPerson = person;

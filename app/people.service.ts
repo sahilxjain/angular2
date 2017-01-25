@@ -18,11 +18,7 @@ const PEOPLE : Person[] = [
 @Injectable()
 export class PeopleService{
 
-  jsondata:Person[] = [];
-  constructor(private http: Http){
-    var ll = this.fetchJson().subscribe(function(data){ console.log(data) }, error => console.log(error) );  //subscribe is an async observable function 
-    console.log(ll);
-  }
+  constructor(private http: Http){ }
 
   public fetchJson(): Observable<any>{
     return this.http.get("./app/people.json").map((res:any) => res.json())
@@ -43,6 +39,7 @@ export class PeopleService{
     if (originalPerson) Object.assign(originalPerson, person);
     // saved muahahaha
   }
+  
   private clone(object: any){
     return JSON.parse(JSON.stringify(object));
   }
