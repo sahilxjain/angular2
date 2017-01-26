@@ -7,30 +7,9 @@ import {PeopleService} from "./people.service"
 
 @Component({
   selector: 'my-app',
-  template: `
-    <div class = "container">
-      <h1> {{title}} </h1>
-      <table class="table table-striped table-bordered table-hover">
-        <tr *ngFor="let person of people" (click)=onClick(person) [class.selected]="selected===person">
-          <td>{{person.name}}</td>
-        </tr>
-      </table>
-      <table *ngIf="selected.name" class="table table-striped table-bordered table-hover"> <!-- selected.name is empty so its false by default -->
-        <tr>
-          <th>Height</th>
-          <th>Weight</th>
-        </tr>
-        <tr>
-          <td>{{selected.height}}</td>
-          <td>{{selected.weight}}</td>
-        </tr>
-      </table>
-      <p>Below list is imported from other componment</p>
-      <!-- <people-list></people-list> --> <!-- Our child component selector -->
-      <router-outlet></router-outlet> <!-- Angular 2 Routing directive that displays the active route -->
-
-    </div>
-    `,
+  // template: `    // Templeate moved to html
+  //   `,
+    templateUrl: 'app/app.component.html',
     providers: [PeopleService], // HERE! This registers the PeopleService  now Angular 2 knows to inject it when required
 
     styleUrls: ['app/src/css/main.css']
@@ -38,7 +17,6 @@ import {PeopleService} from "./people.service"
 })
 export class AppComponent  { 
     title:string = 'Star Wars PPlz!!!';
-
 
     // Directly Using static data without an service
     // public people:Person[] = [

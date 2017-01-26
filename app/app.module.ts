@@ -11,11 +11,13 @@ import { AppComponent }  from './app.component';
 import { PeopleListComponent } from "./people-list.component"
 import { PersonDetailsComponent } from './person-details.component'
 
+import {AboutUsComponent} from './about-us-component'
+
 
 
 @NgModule({
   imports:      [ BrowserModule,routing,FormsModule,HttpModule ],
-  declarations: [ AppComponent, PeopleListComponent,PersonDetailsComponent ],
+  declarations: [ AppComponent, PeopleListComponent,PersonDetailsComponent,AboutUsComponent ],
   bootstrap:    [ AppComponent ]
   //providers: [] // Used the same instance of a service for whole application. Also import service first
 })

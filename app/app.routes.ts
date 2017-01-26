@@ -1,6 +1,9 @@
 import {Routes,RouterModule} from  "@angular/router" //to make our routes available to the rest of the application, we import the RouterModule
+
 import  {PeopleListComponent} from "./people-list.component"
 import { PersonDetailsComponent } from './person-details.component'
+
+import {AboutUsComponent} from './about-us-component'
 
 
 // Route config let's you map routes to components
@@ -21,6 +24,10 @@ const routes: Routes = [
     redirectTo: '/persons',
     pathMatch: 'full'
   },
+  {
+    path: 'about-us',
+    component: AboutUsComponent
+  }
 ];
 
 export const routing = RouterModule.forRoot(routes);
