@@ -4,6 +4,7 @@ import  {PeopleListComponent} from "./people-list.component"
 import { PersonDetailsComponent } from './person-details.component'
 
 import {AboutUsComponent} from './about-us-component'
+import {UsersComponent} from './users-component'
 
 
 // Route config let's you map routes to components
@@ -27,7 +28,11 @@ const routes: Routes = [
   {
     path: 'about-us',
     component: AboutUsComponent
-  }
+  },
+  {
+    path: 'users',
+    component: UsersComponent
+  },
 ];
 
 export const routing = RouterModule.forRoot(routes);

@@ -1,0 +1,16 @@
+<h1>List of all Employees</h1>
+
+<div class = "container">
+    <table class="table table-striped table-bordered table-hover">
+        <tr *ngFor="let employee of employees" >
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>{{employee.name}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.age}}</td>
+        </tr>
+    </table>
+</div>
